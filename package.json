@@ -1,0 +1,60 @@
+{
+  "name": "grunt-jsdoc2md",
+  "version": "0.2.2",
+  "description": "generate markdown from jsdoc",
+  "author": "Dirk Brenckmann <db.developer@gmx.de>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=10.15.1"
+  },
+  "main": "tasks/tasks.js",
+  "scripts": {
+    "all": "grunt all",
+    "build": "grunt build",
+    "coverage": "grunt coverage",
+    "docs": "grunt docs",
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/db-developer/grunt-jsdoc2md.git"
+  },
+  "keywords": [
+    "grunt",
+    "json",
+    "package.json",
+    "tsconfig.json"
+  ],
+  "files": [
+    "docs",
+    "tasks",
+    "lib"
+  ],
+  "bugs": {
+    "url": "https://github.com/db-developer/grunt-jsdoc2md/issues"
+  },
+  "homepage": "https://github.com/db-developer/grunt-jsdoc2md#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "babel-loader": "^8.2.2",
+    "expect.js": "^0.3.1",
+    "grunt": "^1.3.0",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-eslint": "^23.0.0",
+    "grunt-mkdir": "^1.1.0",
+    "grunt-move": "^1.0.3",
+    "grunt-nyc-mocha": "0.0.4",
+    "grunt-rollup": "^11.5.0",
+    "grunt-shell": "^3.0.1",
+    "grunt-webpack": "^4.0.2",
+    "load-grunt-config": "^3.0.1",
+    "load-grunt-tasks": "^5.1.0",
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "source-map-support": "^0.5.19",
+    "webpack": "^5.10.0"
+  }
+}

@@ -1,0 +1,12 @@
+/node_modules/
+/build/
+/database/
+/dist/
+/src/**/*.js.gz
+/src/**/*.xxxx.js
+/src/test/**/*.----.js
+/src/test/tmp/
+package-lock.json
+/**/planradar.json
+/.nyc_output/
+env.bat
