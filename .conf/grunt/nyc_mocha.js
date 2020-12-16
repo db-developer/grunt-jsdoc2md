@@ -12,7 +12,10 @@ module.exports = function ( grunt, options ) {
         nyc: {
           coverage: {                                 // report nyc coverage results
             dir:          "dist/coverage",            // ... to folder
-            reporter:     [ "html", "text-summary" ], // ... using reporters
+            reporter:     [                           // ... using reporters
+                            "html", "json", "lcov",
+                            "text-summary"
+                          ],
             check:        true,
             perfile:      true,
             branches:     100,
