@@ -10,7 +10,8 @@ module.exports = function ( grunt, options ) {
         mode:   0777,
         create: [
           options.BUILDDIR,
-          options.DISTDIR
+          options.DISTDIR,
+          options.TMPDIR
         ]
       }
     }

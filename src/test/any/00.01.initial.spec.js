@@ -17,6 +17,11 @@ const assert = require( "assert" );
              const test = require( "expect.js" );
           }, undefined, "Missing assertion framework 'expect.js'" );
       });
+      it( "Check for availability of jsdoc to markdown library 'jsdoc-to-markdown'", () => {
+          assert.doesNotThrow(() => {
+             const test = require( "jsdoc-to-markdown" );
+          }, undefined, "Missing jsdoc to markdown framework 'jsdoc-to-markdown'" );
+      });
     });
   });
 })();

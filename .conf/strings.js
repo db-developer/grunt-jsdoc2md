@@ -23,6 +23,7 @@ module.exports = {
   SCRIPTS:  "scripts",
   SRC:      "src",
   TASKS:    "tasks",
+  TEMPLATE: "templates",
   TEST:     "test",
   TMP:      "tmp"
 }

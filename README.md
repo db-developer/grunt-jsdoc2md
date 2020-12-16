@@ -1,5 +1,5 @@
 # grunt-jsdoc2md
-generate markdown from jsdoc.  
+Generate markdown api documentation from jsdoc.  
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![codecov](https://codecov.io/gh/db-developer/grunt-jsdoc2md/branch/master/graph/badge.svg)](https://codecov.io/gh/db-developer/grunt-jsdoc2md)
@@ -14,6 +14,7 @@ generate markdown from jsdoc.
 * [Code coverage of tests for grunt-jsdoc2md](docs/grunt.md#code-coverage)
 * [Build grunt-jsdoc2md from scratch](docs/grunt.md#building)
 * [NPM integration of grunt-jsdoc2md](docs/grunt.md#npm_integration)
+* [Frameworks used for testing, building, etc.](docs/frameworks.md)
 
 ## getting started ##
 
@@ -22,15 +23,19 @@ The plugin can be installed by the following command:
 
 <code>npm install grunt-jsdoc2mds --save-dev</code>
 
-Do note forget to install the peer dependencies.  
+Do not forget to install the peer dependencies.  
 Once installed, the plugin may be loaded from within your gruntfile:
 
-<code>grunt.loadNpmTasks( "jsonfiles" );</code>
+<code>grunt.loadNpmTasks( "jsdoc2md" );</code>
 
 Setup the task configuration as described below (see usage) and run the task:
 
-<code>grunt jsonfiles</code>
+<code>grunt jsdoc2md</code>
 
 Of cause, the task can be integrated into any complex build process.
 
 ## usage ##
+
+... checkout git direcotry .conf/grunt/jsdoc2md.js
+
+Documentation to be completed.

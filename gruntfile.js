@@ -17,9 +17,10 @@ const env = {
   SCRITPSDIR:   path.join( `${ strings.SRC   }`, `${ strings.SCRIPTS }` ),
   SRCDIR:       `${ strings.SRC   }`,
   STRINGS:      strings,
-  TASKSDIR:     path.join( `${ strings.SRC   }`, `${ strings.TASKS }`   ),
+  TASKSDIR:     path.join( `${ strings.SRC   }`, `${ strings.TASKS }` ),
+  TEMPLATEDIR:  path.join( `${ strings.SRC   }`, `${ strings.TEST  }`, `${ strings.TEMPLATE }` ),
   TESTDIR:      path.join( `${ strings.SRC   }`, `${ strings.TEST  }`, `${ strings.ANY }` ),
-  TMPDIR:       path.join( `${ strings.SRC   }`, `${ strings.TMPDIR  }` )
+  TMPDIR:       path.join( `${ strings.SRC   }`, `${ strings.TEST  }`, `${ strings.TMP }` )
 };
 
 const GRUNTCONFDIR = path.join( process.cwd(), env.CONFDIR, strings.GRUNT );
@@ -56,6 +57,5 @@ module.exports = function( grunt ) {
   grunt.registerTask( strings.DIST,    [ strings.TEST, strings.BUILD, "move:distribute" ]);
 
   // run test
-  grunt.registerTask( strings.TEST,    [ strings.ESLINT, strings.CLEAN, "mkdir", "copy:test",
-                                         "nyc_mocha" ]);
+  grunt.registerTask( strings.TEST,    [ strings.ESLINT, strings.CLEAN, "mkdir", "nyc_mocha" ]);
 };
