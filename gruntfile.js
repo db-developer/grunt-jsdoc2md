@@ -44,8 +44,7 @@ module.exports = function( grunt ) {
                                          "rollup:build", "shell:npm_pack" ]);
 
   // run coverage
-  grunt.registerTask( strings.COVERAGE, [ strings.ESLINT, strings.CLEAN, "mkdir", "copy:test",
-                                          "nyc_mocha" ]);
+  grunt.registerTask( strings.COVERAGE, [ strings.ESLINT, strings.CLEAN, "mkdir", "nyc_mocha" ]);
 
   // run default
   grunt.registerTask( strings.DEFAULT, [ strings.ALL ]);
