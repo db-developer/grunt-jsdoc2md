@@ -1,7 +1,7 @@
 /**
  *	tasks/index.js: grunt-jsdoc2md
  *
- *  @module tasks
+ *  @module grunt-jsdoc2md/tasks
  *
  *//*
  *  © 2020, slashlib.org.

@@ -6,6 +6,9 @@
 // Note: This is used for running tests only!
 module.exports = function ( grunt, options ) {
   return {
+    options: {
+      plugin: [ "dmd-readable", "dmd-grunt-jsdoc2md" ]
+    },
     target1: {
       // multiple source files to directory with multiple markdown files
       src: "src/lib/**/*.js",

@@ -1,7 +1,7 @@
 /**
  *	options/index.js: grunt-jsdoc2md
  *
- *  @module options
+ *  @module grunt-jsdoc2md/options
  *
  *//*
  *  © 2020, slashlib.org.

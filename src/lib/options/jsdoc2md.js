@@ -1,7 +1,7 @@
 /**
  *	options/jsdoc2md.js: grunt-jsdoc2md
  *
- *  @module options_jsdoc2md
+ *  @module grunt-jsdoc2md/options/jsdoc2md
  *
  *//*
  *  © 2020, slashlib.org.

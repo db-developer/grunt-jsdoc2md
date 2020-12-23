@@ -1,7 +1,7 @@
 /**
  *	constants.js:  grunt-jsdoc2md
  *
- *  @module constants
+ *  @module grunt-jsdoc2md/constants
  *
  *//*
  *  © 2020, slashlib.org.

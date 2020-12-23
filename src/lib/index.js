@@ -17,8 +17,8 @@
  *  @ignore
  */
 const _m = {
-  const:    require( "./constants" ),
-  tasks:    require( "./tasks"     )
+  const:        require( "./constants"  ),
+  tasks:        require( "./tasks"      )
 }
 
 /**
