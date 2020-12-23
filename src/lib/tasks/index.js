@@ -21,6 +21,7 @@ const _m = {
 };
 
 /**
+*  Stringtable
  *  @ignore
  */
 const _STRINGS = {

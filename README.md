@@ -6,7 +6,6 @@ Generate markdown api documentation from jsdoc.
 [![Build Status](https://travis-ci.com/db-developer/grunt-jsdoc2md.svg?branch=master)](https://travis-ci.com/db-developer/grunt-jsdoc2md)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/)
 
-
 ## content ##
 
 * [Getting started guide (see 'getting started' below)](#getting-started)
@@ -15,6 +14,7 @@ Generate markdown api documentation from jsdoc.
 * [Build grunt-jsdoc2md from scratch](docs/grunt.md#building)
 * [NPM integration of grunt-jsdoc2md](docs/grunt.md#npm_integration)
 * [Frameworks used for testing, building, etc.](docs/frameworks.md)
+* [API of package grunt-jsdoc2md](docs/api.md) (self generated with grunt-jsdoc2md)
 
 ## getting started ##
 
@@ -23,12 +23,9 @@ The plugin can be installed by the following command:
 
 <code>npm install grunt-jsdoc2mds --save-dev</code>
 
-Do not forget to install the peer dependencies.  
-Once installed, the plugin may be loaded from within your gruntfile:
+Once installed, the plugin may be loaded from within your gruntfile.  
 
-<code>grunt.loadNpmTasks( "jsdoc2md" );</code>
-
-Setup the task configuration as described below (see usage) and run the task:
+Setup the task configuration as described below (see usage) and run the task:  
 
 <code>grunt jsdoc2md</code>
 
@@ -36,6 +33,47 @@ Of cause, the task can be integrated into any complex build process.
 
 ## usage ##
 
-... checkout git direcotry .conf/grunt/jsdoc2md.js
+Basically this module does the same as [grunt-jsdoc-to-markdown](https://www.npmjs.com/package/grunt-jsdoc-to-markdown) ... with additions:
 
-Documentation to be completed.
+1. Internal use of dmd plugin [dmd-readable](https://www.npmjs.com/package/dmd-readable) to make things more ... readable :-)
+2. In case multiple markdown files are created into a directory tree, an index file is created, to link the outputfiles together.
+
+```javascript
+// from jsdoc2md.js for use with load-grunt-config
+
+module.exports = function ( grunt, options ) {
+  return {
+    options: {
+      // options to use with every target
+      // basically all options, which are accepted by
+      // 'jsdoc-to-markdown', can be added here.
+    },
+    target1: {
+      // multiple source files to directory with multiple markdown files
+      src: "src/lib/**/*.js",         // glob which will resolve to multiple sourcefiles
+      dest: "docs/api/",              // destination 'directory' (defined by ending slash)
+                                      // ... this is where the markdown files will be created.
+      options: {                      // options to use with 'target0'
+        index:  {                     // create an index file
+          dest:     "docs/api.md"     // name it 'api.md' and place it in the docs directory.
+          // template: "partials/api.hbs"   // use the named template to create the index file.
+        }
+      }
+    },
+    target2: {
+      files: [
+        // single source file to single markdown file
+        { src: 'src/lib/tasks/jsdoc2md.js',   dest: 'src/test/tmp/api/tofile/1/jsdoc2md.md'       },
+        // missing source file ... producing no output but a warning message
+        { src: 'src/does.not.exist.js',       dest: 'src/test/tmp/api/tofile/2/missing.src.md'    },
+        // multiple source files to single (aggregated) markdown file
+        { src: 'src/lib/**/*.js',             dest: 'src/test/tmp/api/tofile/3/aggregated.api.md' },
+        // multiple source files to directory creating multiple markdown files
+        { src: 'src/lib/**/*.js',             dest: 'src/test/tmp/api/tofile/4/' },
+        // multiple source files to directory creating multiple markdown files
+        { src: 'src/test/templates/**/*.js',  dest: 'src/test/tmp/api/tofile/5/' }
+      ]
+    }
+  };
+};
+```

@@ -19,7 +19,8 @@
 const _m = {
   fs:               require( "fs"   ),
   path:             require( "path" ),
-  jsdoc2md:         require( "jsdoc-to-markdown" )
+  jsdoc2md:         require( "jsdoc-to-markdown" ),
+  options:          require( "../options" )
 };
 
 /**
@@ -27,21 +28,29 @@ const _m = {
  *  @ignore
  */
 const _STRINGS =  {
-  DEBUG:            "debug",
-  FILES:            "files",
-  FILESTODIRECTORY: "filesToDirectory",
-  FILESTOFILE:      "filesToFile",
-  GET:              "get",
-  RENDER:           "render",
-  RENDERTREE:       "renderTree",
-  RUNTASKJSDOC2MD:  "runTaskJSDoc2MD",
-  OK_WRITING:       "writing",
-  REDUCE:           "reduce",
-  SRCEXISTS:        "srcExists",
-  SUFFIX_MARKDOWN:  ".md",
-  TREE:             "tree",
-  WARN_MISSING_SRC: "warning: no source file(s) for rendering to destination"
+  DEBUG:                "debug",
+  DEFAULTAPITEMPLATE:   "{{>api}}",
+  FILES:                "files",
+  FILESTODIRECTORY:     "filesToDirectory",
+  FILESTOFILE:          "filesToFile",
+  GET:                  "get",
+  RENDER:               "render",
+  RENDERTREE:           "renderTree",
+  RUNTASKJSDOC2MD:      "runTaskJSDoc2MD",
+  OK_WRITING:           "writing",
+  REDUCE:               "reduce",
+  SRCEXISTS:            "srcExists",
+  SUFFIX_MARKDOWN:      ".md",
+  TREE:                 "tree",
+  UTF8:                 "utf-8",
+  WARN_MISSING_SRC:     "warning: no source file(s) for rendering to destination"
 };
+
+/**
+ *  Default file encoding
+ *  @ignore
+ */
+const _FILEENCODING = { encoding: _STRINGS.UTF8 };
 
 /**
  *  Symbal used by src/dst tree for saving leafs to.
@@ -117,8 +126,10 @@ function flattenTree( grunt, task, tree, datapromise ) {
   if ( tree[ SYMBOL_FILES ]) {
        datapromise = tree[ SYMBOL_FILES ].reduce(( datapromise, fileset ) => {
          return datapromise.then(( dataarray ) => {
+           /* istanbul ignore else: TODO write test */
            if ( fileset.data ) {
                 return fileset.data.then(( output ) => {
+                  /* istanbul ignore else: TODO write test */
                   if ( Array.isArray( output )) {
                        dataarray.push( ...output );
                   }
@@ -133,6 +144,36 @@ function flattenTree( grunt, task, tree, datapromise ) {
   return Object.keys( tree ).reduce(( datapromise, node ) => {
     return flattenTree( grunt, task, tree[ node ], datapromise );
   }, datapromise );
+}
+
+/**
+ *
+ *  Note on debugging:
+ *    handlebars does cache your arse off! If you debug, better manually delete
+ *    caching directories before each run, than to rely on caching options...
+ *    windows: c:\users\<username>\appdata\local\temp
+ */
+async function renderApiIndex( grunt, task, file, options, dsttree ) {
+  // debug: write json data to file for analysis
+  // _m.fs.writeFileSync( `${ file.dest }/api.md.json`, JSON.stringify( options.data ));
+
+  // debug: load custom helpers and partials
+  // const handlebars = require( "../handlebars" );
+  // handlebars.init( grunt );
+
+  let   datapromise   = Promise.resolve([ ]);
+        options       = JSON.parse( JSON.stringify( options ));
+        options.data  = await flattenTree( grunt, task, dsttree, datapromise );
+
+  const tmplpath      = options.index.template;
+  if ( ! tmplpath ) { options.template = _STRINGS.DEFAULTAPITEMPLATE }
+  else options.template = grunt.file.read( tmplpath, _FILEENCODING );
+
+  const basedir = _m.path.dirname( options.index.dest );
+  if ( basedir !== "." ) { grunt.file.mkdir( basedir ); }
+  await _m.jsdoc2md.render( options ).then(( output ) => {
+        _m.fs.writeFileSync( options.index.dest, output );
+  });
 }
 
 /**
@@ -212,7 +253,7 @@ function reduce( dsttree ) {
   else keys = Object.keys( dsttree );
 
   /* istanbul ignore if: not required */
-  if ( keys.length < 1 ) { return undefined }
+  if ( keys.length < 1 ) { return { }; }
   else if ( keys.length > 1 ) { return dsttree; }
   else return reduce( dsttree[ keys[ 0 ]] );
 }
@@ -226,7 +267,7 @@ function reduce( dsttree ) {
  *  @param    {Object}      file        - A grunt file object
  *  @param    {Object}      options     - Options to use for rendering jsdoc to md
  *//* eslint-disable-next-line */
-async function filesToDirectory( grunt, task, file, options ) {
+function filesToDirectory( grunt, task, file, options ) {
   if ( srcExists( grunt, file )) {
        grunt.log.warn( `${ _STRINGS.WARN_MISSING_SRC } '${ file.dest }'.` );
        return Promise.resolve( true );
@@ -235,26 +276,19 @@ async function filesToDirectory( grunt, task, file, options ) {
        let dsttree = tree( file.src );    // build tree
            dsttree = reduce( dsttree );   // remove empty base like cwd/src/...
 
-       /* istanbul ignore else: I would not expect this to happen... */
+       /* istanbul ignore else: should never happen */
        if ( dsttree ) {
-            renderTree(  grunt, task, options, file.dest, dsttree, [ "." ]);
-
-            let datapromise = Promise.resolve([ ]);
-            let data        = await flattenTree( grunt, task, dsttree, datapromise );
-
-            _m.fs.writeFileSync( `${ file.dest }/api.md.json`, JSON.stringify( data ));
-
-            // const handlebars = require( "../handlebars" );
-            // handlebars.init( grunt );
-
-            options           = JSON.parse( JSON.stringify( options ));
-            options.cache     = false;
-            options.data      = data;
-            options.template  = "{{>api}}";
-            //options[ "api-module-index-format" ] = undefined;
-            await _m.jsdoc2md.render(options)
-                    .then(( output ) => { _m.fs.writeFileSync( `${ file.dest }/api.md`, output ); });
-
+            // last parameter is "treepath", which will define what context.meta.href
+            // looks like. 'href' must map the relative path from the api index markdown
+            // to the subsequent api module markdows.
+            if ( options.index !== false ) {
+                 const basepath = _m.path.dirname( options.index.dest );
+                 let   relpath  = _m.path.relative( basepath, file.dest );
+                       relpath  = relpath.replace( /[\\]/g, "/" );
+                 renderTree( grunt, task, options, file.dest, dsttree, [ relpath ]);
+                 renderApiIndex( grunt, task, file, options, dsttree );
+            }
+            else renderTree( grunt, task, options, file.dest, dsttree, [ "." ]);
        }
        else grunt.log.warn( `${ _STRINGS.WARN_MISSING_SRC } '${ file.dest }'.` );
 
@@ -321,7 +355,7 @@ function get( grunt, task, file, options ) {
  *  @returns  {Promise} A promise for rendering and writing markdown files.
  */
 function runTaskJSDoc2MD( grunt, task ) {
-  const options = task.options();
+  const options = _m.options.get( grunt, task );
   // task.files:
   // @see https://gruntjs.com/configuring-tasks#files-array-format
   const promises = task.files.map(( file ) => {

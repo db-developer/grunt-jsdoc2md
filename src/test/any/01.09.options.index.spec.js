@@ -11,10 +11,10 @@ const expect    = require( "expect.js" );
     const options = require( "../../lib/options" );
 
     describe( "Testing exports of module 'options'", () => {
-      it( "Function 'getOptions' should exist", () => {
-          expect( options.getOptions ).not.to.be( undefined  );
-          expect( options.getOptions ).not.to.be( null       );
-          expect( options.getOptions ).to.be.a(   "function" );
+      it( "Function 'get' should exist", () => {
+          expect( options.get ).not.to.be( undefined  );
+          expect( options.get ).not.to.be( null       );
+          expect( options.get ).to.be.a(   "function" );
       });
     });
   });

@@ -21,15 +21,16 @@ const _m = {
 };
 
 /**
+ *  Stringtable
  *  @ignore
  */
 const _STRINGS = {
-  GETOPTIONS:  "getOptions"
+  GET:        "get"
 };
 
 /* eslint-disable */
 // Module exports:
-Object.defineProperty( module.exports, _STRINGS.GETOPTIONS,  {
+Object.defineProperty( module.exports, _STRINGS.GET,  {
        value:    _m.jsdoc2md.getOptions,
        writable: false, enumerable: true, configurable: false });
 /* eslint-enable */
