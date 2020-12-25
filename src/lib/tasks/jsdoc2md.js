@@ -73,10 +73,13 @@ function render( grunt, task, options, fileset ) {
   fileset.data = _m.jsdoc2md.getTemplateData( JSON.parse( JSON.stringify( options )))
                    .then( function ( output ) {
                           output.forEach(( element ) => {
-                            element.meta.destfilename = fileset.dest;
-                            element.meta.destpath     = _m.path.dirname(  fileset.file );
-                            element.meta.relativepath = fileset.path;
-                            element.meta.href         = `${ fileset.path }/${ fileset.dest }`;
+                            /* istanbul ignore else: TODO: Find out else path and test it */
+                            if ( element.meta ) { // oviously elements without metadata may exist ...
+                                 element.meta.destfilename = fileset.dest;
+                                 element.meta.destpath     = _m.path.dirname(  fileset.file );
+                                 element.meta.relativepath = fileset.path;
+                                 element.meta.href         = `${ fileset.path }/${ fileset.dest }`;
+                            }
                           });
                           // _m.fs.writeFileSync( `${ fileset.file }.json`, JSON.stringify( output ));
                           return output;
