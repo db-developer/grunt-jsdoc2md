@@ -20,10 +20,9 @@ module.exports  = function ( grunt, options ) {
           dest: `${ options.BUILDDIR }/`
         },{
           expand: true,
-          flatten: true,
-          filter: "isFile",
-          src:  [ `${ options.DOCSDIR }/**/*.md` ],
-          dest: `${ options.BUILDDIR }/docs/`
+          cwd:    `${ options.DOCSDIR }/`,
+          src:    [ "**/*.md" ],
+          dest:   `${ options.BUILDDIR }/${ options.DOCSDIR }/`
         },{
           expand: true,
           flatten: true,
