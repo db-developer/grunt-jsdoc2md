@@ -5,7 +5,7 @@
   "author": "Dirk Brenckmann <db.developer@gmx.de>",
   "license": "MIT",
   "engines": {
-    "node": ">=10.15.1"
+    "node": ">=14.15.3"
   },
   "main": "tasks/tasks.js",
   "scripts": {
