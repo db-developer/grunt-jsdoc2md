@@ -13,37 +13,40 @@
 "use strict";
 
 /**
- *  Mapping of all imported modules.
+ *  Moduletable
  *  @ignore
  */
 const _m = {
   fs:               require( "fs"   ),
   path:             require( "path" ),
   jsdoc2md:         require( "jsdoc-to-markdown" ),
-  options:          require( "../options" )
+  const:            require( "../constants" ),
+  options:          require( "../options"   )
 };
 
 /**
- *  Mapping of strings
+ *  Stringtable
  *  @ignore
  */
 const _STRINGS =  {
-  DEBUG:                "debug",
-  DEFAULTAPITEMPLATE:   "{{>api}}",
-  FILES:                "files",
-  FILESTODIRECTORY:     "filesToDirectory",
-  FILESTOFILE:          "filesToFile",
-  GET:                  "get",
-  RENDER:               "render",
-  RENDERTREE:           "renderTree",
-  RUNTASKJSDOC2MD:      "runTaskJSDoc2MD",
-  OK_WRITING:           "writing",
-  REDUCE:               "reduce",
-  SRCEXISTS:            "srcExists",
-  SUFFIX_MARKDOWN:      ".md",
-  TREE:                 "tree",
-  UTF8:                 "utf-8",
-  WARN_MISSING_SRC:     "warning: no source file(s) for rendering to destination"
+  DEBUG:                      "debug",
+  DEFAULTAPITEMPLATE:         "{{>api}}",
+  FILES:                      "files",
+  FILESTODIRECTORY:           "filesToDirectory",
+  FILESTOFILE:                "filesToFile",
+  GET:                        "get",
+  OK_INDEXING:                "indexing",
+  OK_WRITING:                 "writing",
+  REGISTERMULTITASKJSDOC2MD:  "registerMultiTaskJSDoc2MD",
+  RENDER:                     "render",
+  RENDERTREE:                 "renderTree",
+  RUNTASKJSDOC2MD:            "runTaskJSDoc2MD",
+  REDUCE:                     "reduce",
+  SRCEXISTS:                  "srcExists",
+  SUFFIX_MARKDOWN:            ".md",
+  TREE:                       "tree",
+  UTF8:                       "utf-8",
+  WARN_MISSING_SRC:           "warning: no source file(s) for rendering to destination"
 };
 
 /**
@@ -68,8 +71,6 @@ const SYMBOL_FILES = Symbol( _STRINGS.FILES );
  *  @param    {Object}      fileset     - Fileset
  */
 function render( grunt, task, options, fileset ) {
-  grunt.log.ok( `${ _STRINGS.OK_WRITING } ${ fileset.file }` );
-
   fileset.data = _m.jsdoc2md.getTemplateData( JSON.parse( JSON.stringify( options )))
                    .then( function ( output ) {
                           output.forEach(( element ) => {
@@ -88,6 +89,7 @@ function render( grunt, task, options, fileset ) {
 
   return _m.jsdoc2md.render( options )
            .then( function ( output ) {
+                  grunt.log.ok( `${ _STRINGS.OK_WRITING } ${ fileset.file }` );
                   _m.fs.writeFileSync( fileset.file, output );
             })
            .catch( grunt.fail.fatal );
@@ -104,22 +106,27 @@ function render( grunt, task, options, fileset ) {
  */
 function renderTree( grunt, task, options, destination, tree, treepath ) {
   /* istanbul ignore else: not required */
+  let  stage = Promise.resolve();
   if ( tree[ SYMBOL_FILES ]) {
        grunt.file.mkdir( destination );
-       const opts = JSON.parse( JSON.stringify( options ));
-       tree[ SYMBOL_FILES ].forEach(( fileset ) => {
-         fileset.depth  = treepath.length;
-         fileset.path   = treepath.join( "/" );
-         fileset.file   = _m.path.join( process.cwd(), destination, fileset.dest );
-         opts.files     = [ fileset.src ];
-         render( grunt, task, opts, fileset );
-       });
+       const opts  = JSON.parse( JSON.stringify( options ));
+             stage = tree[ SYMBOL_FILES ].reduce(( promise, fileset ) => {
+                       return promise.then(() => {
+                         fileset.depth  = treepath.length;
+                         fileset.path   = treepath.join( "/" );
+                         fileset.file   = _m.path.join( process.cwd(), destination, fileset.dest );
+                         opts.files     = [ fileset.src ];
+                         return render( grunt, task, opts, fileset );
+                       });
+                     }, stage );
   }
-  Object.keys( tree ).forEach(( node ) => {
-    const localtree = tree[ node ];
-    const localdest = _m.path.join( destination, node );
-    renderTree( grunt, task, options, localdest, localtree, [ ...treepath, node ]);
-  });
+  return Object.keys( tree ).reduce(( promise, node ) => {
+    return promise.then(() => {
+                     const localtree = tree[ node ];
+                     const localdest = _m.path.join( destination, node );
+                     return renderTree( grunt, task, options, localdest, localtree, [ ...treepath, node ]);
+                   });
+  }, stage );
 }
 
 /**
@@ -163,20 +170,26 @@ async function renderApiIndex( grunt, task, file, options, dsttree ) {
   // debug: load custom helpers and partials
   // const handlebars = require( "../handlebars" );
   // handlebars.init( grunt );
+  try {
+      let   datapromise   = Promise.resolve([ ]);
+            options       = JSON.parse( JSON.stringify( options ));
+            options.data  = await flattenTree( grunt, task, dsttree, datapromise );
 
-  let   datapromise   = Promise.resolve([ ]);
-        options       = JSON.parse( JSON.stringify( options ));
-        options.data  = await flattenTree( grunt, task, dsttree, datapromise );
+      const tmplpath      = options.index.template;
+      if ( ! tmplpath ) { options.template = _STRINGS.DEFAULTAPITEMPLATE }
+      else options.template = grunt.file.read( tmplpath, _FILEENCODING );
 
-  const tmplpath      = options.index.template;
-  if ( ! tmplpath ) { options.template = _STRINGS.DEFAULTAPITEMPLATE }
-  else options.template = grunt.file.read( tmplpath, _FILEENCODING );
+      const basedir = _m.path.dirname( options.index.dest );
+      if ( basedir !== "." ) { grunt.file.mkdir( basedir ); }
 
-  const basedir = _m.path.dirname( options.index.dest );
-  if ( basedir !== "." ) { grunt.file.mkdir( basedir ); }
-  await _m.jsdoc2md.render( options ).then(( output ) => {
-        _m.fs.writeFileSync( options.index.dest, output );
-  });
+      return _m.jsdoc2md.render( options )
+               .then( function ( output ) {
+                      grunt.log.ok( `${ _STRINGS.OK_INDEXING } ${ options.index.dest }` );
+                      _m.fs.writeFileSync( options.index.dest, output );
+                })
+               .catch( grunt.fail.fatal );
+  }
+  catch( error ) { /* istanbul ignore next */ return Promise.reject( error ); }
 }
 
 /**
@@ -288,14 +301,19 @@ function filesToDirectory( grunt, task, file, options ) {
                  const basepath = _m.path.dirname( options.index.dest );
                  let   relpath  = _m.path.relative( basepath, file.dest );
                        relpath  = relpath.replace( /[\\]/g, "/" );
-                 renderTree( grunt, task, options, file.dest, dsttree, [ relpath ]);
-                 renderApiIndex( grunt, task, file, options, dsttree );
+                 return renderTree( grunt, task, options, file.dest, dsttree, [ relpath ]).then(() => {
+                          return renderApiIndex( grunt, task, file, options, dsttree );
+                        }).catch( /* istanbul ignore next */ ( error ) => {
+                          grunt.log.warn( `Cannot render API Index due to error'.`, error );
+                          throw error;
+                        });
             }
-            else renderTree( grunt, task, options, file.dest, dsttree, [ "." ]);
+            else return renderTree( grunt, task, options, file.dest, dsttree, [ "." ]);
        }
-       else grunt.log.warn( `${ _STRINGS.WARN_MISSING_SRC } '${ file.dest }'.` );
-
-       return Promise.resolve( true );
+       else {
+            grunt.log.warn( `${ _STRINGS.WARN_MISSING_SRC } '${ file.dest }'.` );
+            return Promise.resolve( true );
+       }
   }
   catch( error ) { /* istanbul ignore next */ return Promise.reject( error ); }
 }
@@ -367,6 +385,21 @@ function runTaskJSDoc2MD( grunt, task ) {
   return Promise.all( promises );
 }
 
+/**
+ *  Registers the 'jsdoc2md' multitask.
+ *
+ *  @param  {grunt} grunt
+ */
+function registerMultiTaskJSDoc2MD( grunt ) {
+  grunt.registerMultiTask( _m.const.TASKNAME_JSDOC2MD, _m.const.TASKDESCRIPTION_JSDOC2MD,
+    /* istanbul ignore next */ function () {
+      const task = this;
+      const done = task.async();
+      runTaskJSDoc2MD( grunt, task ).then((       ) => { done(); },
+                                          ( error ) => { grunt.log.error( error ); done( false ); });
+  });
+}
+
 /* eslint-disable */
 // Module exports:
 Object.defineProperty( module.exports, _STRINGS.FILESTODIRECTORY,  {
@@ -380,6 +413,9 @@ Object.defineProperty( module.exports, _STRINGS.GET,            {
        writable: false, enumerable: true, configurable: false });
 Object.defineProperty( module.exports, _STRINGS.REDUCE,         {
        value:    reduce,
+       writable: false, enumerable: true, configurable: false });
+Object.defineProperty( module.exports, _STRINGS.REGISTERMULTITASKJSDOC2MD, {
+       value:    registerMultiTaskJSDoc2MD,
        writable: false, enumerable: true, configurable: false });
 Object.defineProperty( module.exports, _STRINGS.RENDER,         {
        value:    render,
