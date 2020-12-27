@@ -17,6 +17,10 @@ Many problems ESLint finds can be automatically fixed. ESLint fixes are syntax-a
 Customize  
 Preprocess code, use custom parsers, and write your own rules that work alongside ESLint's built-in rules. You can customize ESLint to work exactly the way you need it for your project.
 
+### [jsdoc](https://jsdoc.app/) ###
+
+Documenting the javascript sources
+
 ### [mocha](https://mochajs.org/) ###
 
 Testing framework.
