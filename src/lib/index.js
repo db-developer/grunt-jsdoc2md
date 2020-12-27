@@ -1,5 +1,6 @@
 /**
- *	index.js: grunt-jsdoc2md
+ *	Package interface of grunt-jsdoc2md<br />
+ *  All static members of this module are available for 3rd party access.
  *
  *  @module grunt-jsdoc2md
  *
@@ -13,40 +14,33 @@
 "use strict";
 
 /**
- *  Module initializer
+ *  Moduletable
  *  @ignore
  */
 const _m = {
-  const:        require( "./constants"  ),
-  tasks:        require( "./tasks"      )
+  tasks:  require( "./tasks" )
 }
 
 /**
+ *  Stringtable
  *  @ignore
  */
 const _STRINGS = {
   REGISTERMULTITASKJSDOC2MD:  "registerMultiTaskJSDoc2MD"
 }
 
-/**
- *  Registers the 'jsonfile' multitask.
- *
- *  @param  {grunt} grunt
- */
-function registerMultiTaskJSDoc2MD( grunt ) {
-  grunt.registerMultiTask( _m.const.TASKNAME_JSDOC2MD, _m.const.TASKDESCRIPTION_JSDOC2MD,
-    /* istanbul ignore next */ function () {
-      const task = this;
-      const done = task.async();
-      _m.tasks.runTaskJSDoc2MD( grunt, task )
-              .then((       ) => { done(); },
-                    ( error ) => { grunt.log.error( error ); done( false ); });
-  });
-}
-
 /* eslint-disable */
 // Module exports:
+/**
+ *  Register a multitask for 'jsdoc2md'.
+ *
+ *  @see    Function [registerMultiTaskJSDoc2MD]{@link tasks/index.md#.registerMultiTaskJSDoc2MD}
+ *          published by module tasks for a detailed function description.
+ *
+ *  @function module:grunt-jsdoc2md.registerMultiTaskJSDoc2MD
+ *  @param  {grunt} grunt
+ */
 Object.defineProperty( module.exports, _STRINGS.REGISTERMULTITASKJSDOC2MD, {
-       value:    registerMultiTaskJSDoc2MD,
+       value:    _m.tasks.registerMultiTaskJSDoc2MD,
        writable: false, enumerable: true, configurable: false });
 /* eslint-enable */
