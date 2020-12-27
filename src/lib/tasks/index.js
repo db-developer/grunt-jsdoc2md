@@ -1,23 +1,23 @@
 /**
- *	tasks/index.js: grunt-jsdoc2md
+ *	index.js: grunt-jsdoc2md/tasks
  *
  *  @module grunt-jsdoc2md/tasks
  *
  *//*
  *  © 2020, slashlib.org.
  *
- *  tasks/index.js  is  distributed  WITHOUT ANY WARRANTY;  without even the
- *  implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *  index.js  is distributed WITHOUT ANY WARRANTY; without even the implied
+ *  warranty  of  MERCHANTABILITY  or  FITNESS  FOR  A PARTICULAR  PURPOSE.
  *
  *//* eslint-disable-next-line */
 "use strict";
 
 /**
- *  Module initializer
+ *  Moduletyble
  *  @ignore
  */
 const _m = {
-  jsdoc2md:         require( "./jsdoc2md" )
+  jsdoc2md: require( "./jsdoc2md" )
 };
 
 /**
@@ -25,12 +25,21 @@ const _m = {
  *  @ignore
  */
 const _STRINGS = {
-  RUNTASKJSDOC2MD:  "runTaskJSDoc2MD"
+  REGISTERMULTITASKJSDOC2MD:  "registerMultiTaskJSDoc2MD"
 };
 
 /* eslint-disable */
 // Module exports:
-Object.defineProperty( module.exports, _STRINGS.RUNTASKJSDOC2MD,  {
-       value:    _m.jsdoc2md.runTaskJSDoc2MD,
+/**
+ *  Register a multitask for 'jsdoc2md'.
+ *
+ *  @see    Function [registerMultiTaskJSDoc2MD]{@link jsdoc2md.md#.registerMultiTaskJSDoc2MD}
+ *          published by module jsdoc2md for a detailed function description.
+ *
+ *  @function module:grunt-jsdoc2md/tasks.registerMultiTaskJSDoc2MD
+ *  @param  {grunt} grunt
+ */
+Object.defineProperty( module.exports, _STRINGS.REGISTERMULTITASKJSDOC2MD, {
+       value:    _m.jsdoc2md.registerMultiTaskJSDoc2MD,
        writable: false, enumerable: true, configurable: false });
 /* eslint-enable */

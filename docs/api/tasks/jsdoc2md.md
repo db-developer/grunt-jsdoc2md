@@ -16,6 +16,7 @@
     * [~filesToFile(grunt, task, file, options)](#module_grunt-jsdoc2md/tasks/jsdoc2md..filesToFile) ⇒ <code>Promise</code>
     * [~get(grunt, task, file, options)](#module_grunt-jsdoc2md/tasks/jsdoc2md..get) ⇒ <code>Promise</code>
     * [~runTaskJSDoc2MD(grunt, task)](#module_grunt-jsdoc2md/tasks/jsdoc2md..runTaskJSDoc2MD) ⇒ <code>Promise</code>
+    * [~registerMultiTaskJSDoc2MD(grunt)](#module_grunt-jsdoc2md/tasks/jsdoc2md..registerMultiTaskJSDoc2MD)
 
 
 <br><a name="module_grunt-jsdoc2md/tasks/jsdoc2md..render"></a>
@@ -137,4 +138,15 @@
 | --- | --- | --- |
 | grunt | <code>grunt</code> | Grunt module |
 | task | <code>grunt.task</code> | The task which currently is run |
+
+
+<br><a name="module_grunt-jsdoc2md/tasks/jsdoc2md..registerMultiTaskJSDoc2MD"></a>
+
+### grunt-jsdoc2md/tasks/jsdoc2md~registerMultiTaskJSDoc2MD(grunt)
+> Registers the 'jsdoc2md' multitask.
+
+
+| Param | Type |
+| --- | --- |
+| grunt | <code>grunt</code> | 
 

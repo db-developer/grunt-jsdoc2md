@@ -31,6 +31,11 @@ const expect    = require( "expect.js" );
           expect( jsdoc2md.reduce           ).not.to.be( null       );
           expect( jsdoc2md.reduce           ).to.be.a(   "function" );
       });
+      it( "Function 'registerMultiTaskJSDoc2MD' should exist", () => {
+          expect( jsdoc2md.registerMultiTaskJSDoc2MD ).not.to.be( undefined  );
+          expect( jsdoc2md.registerMultiTaskJSDoc2MD ).not.to.be( null       );
+          expect( jsdoc2md.registerMultiTaskJSDoc2MD ).to.be.a(   "function" );
+      });
       it( "Function 'render' should exist", () => {
           expect( jsdoc2md.render           ).not.to.be( undefined  );
           expect( jsdoc2md.render           ).not.to.be( null       );
@@ -57,14 +62,5 @@ const expect    = require( "expect.js" );
           expect( jsdoc2md.tree             ).to.be.a(   "function" );
       });
     });
-/*
-    describe( "Testing function 'getTemplate' of module 'tasks/jsdoc2md'", () => {
-      it( "should be callable without arguments", () => {
-          expect(() => { jsdoc2md.getTemplate(); }).not.to.throwException();
-          const result = jsdoc2md.getTemplate();
-          expect( JSON.stringify( result ) === JSON.stringify({})).to.be.ok();
-      });
-    });
-*/
   });
 })();

@@ -11,10 +11,10 @@ const expect    = require( "expect.js" );
     const tasks = require( "../../lib/tasks/index" );
 
     describe( "Testing exports of module 'tasks'", () => {
-      it( "Function 'runTaskJSDoc2MD' should exist", () => {
-          expect( tasks.runTaskJSDoc2MD ).not.to.be( undefined  );
-          expect( tasks.runTaskJSDoc2MD ).not.to.be( null       );
-          expect( tasks.runTaskJSDoc2MD ).to.be.a(   "function" );
+      it( "Function 'registerMultiTaskJSDoc2MD' should exist", () => {
+          expect( tasks.registerMultiTaskJSDoc2MD ).not.to.be( undefined  );
+          expect( tasks.registerMultiTaskJSDoc2MD ).not.to.be( null       );
+          expect( tasks.registerMultiTaskJSDoc2MD ).to.be.a(   "function" );
       });
     });
   });

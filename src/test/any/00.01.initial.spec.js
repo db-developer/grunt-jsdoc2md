@@ -22,6 +22,21 @@ const assert = require( "assert" );
              const test = require( "jsdoc-to-markdown" );
           }, undefined, "Missing jsdoc to markdown framework 'jsdoc-to-markdown'" );
       });
+      it( "Check for availability of library 'dmd-grunt-jsdoc2md'", () => {
+          assert.doesNotThrow(() => {
+             const test = require( "dmd-grunt-jsdoc2md" );
+          }, undefined, "Missing library 'dmd-grunt-jsdoc2md'" );
+      });
+      it( "Check for availability of library 'dmd-readable'", () => {
+          assert.doesNotThrow(() => {
+             const test = require( "dmd-readable" );
+          }, undefined, "Missing library 'dmd-readable'" );
+      });
+      it( "Check for availability of library 'handlebars'", () => {
+          assert.doesNotThrow(() => {
+             const test = require( "handlebars" );
+          }, undefined, "Missing library 'handlebars'" );
+      });
     });
   });
 })();
