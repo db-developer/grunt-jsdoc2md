@@ -11,7 +11,7 @@ Generate markdown api documentation from jsdoc.
 * Usage (see further down this page)
   * [Getting started guide](#getting-started)
   * [Usage and examples](#usage)
-  * Maybe look at the [projects config](.conf/grunt/jsdoc2md.js))?
+  * Maybe look at the [projects config](.conf/grunt/jsdoc2md.js)?
 
 * Developers
   * [Testing grunt-jsdoc2md](docs/grunt.md#testing)
