@@ -8,13 +8,18 @@ Generate markdown api documentation from jsdoc.
 
 ## content ##
 
-* [Getting started guide (see 'getting started' below)](#getting-started)
-* [Testing grunt-jsdoc2md](docs/grunt.md#testing)
-* [Code coverage of tests for grunt-jsdoc2md](docs/grunt.md#code-coverage)
-* [Build grunt-jsdoc2md from scratch](docs/grunt.md#building)
-* [NPM integration of grunt-jsdoc2md](docs/grunt.md#npm_integration)
-* [Frameworks used for testing, building, etc.](docs/frameworks.md)
-* [API of package grunt-jsdoc2md](docs/api.md) (self generated with grunt-jsdoc2md)
+* Usage (see further down this page)
+  * [Getting started guide](#getting-started)
+  * [Usage and examples](#usage)
+  * Maybe look at the [projects config](.conf/grunt/jsdoc2md.js))?
+
+* Developers
+  * [Testing grunt-jsdoc2md](docs/grunt.md#testing)
+  * [Code coverage of tests for grunt-jsdoc2md](docs/grunt.md#code-coverage)
+  * [Build grunt-jsdoc2md from scratch](docs/grunt.md#building)
+  * [NPM integration of grunt-jsdoc2md](docs/grunt.md#npm_integration)
+  * [Frameworks used for testing, building, etc.](docs/frameworks.md)
+  * [API of package grunt-jsdoc2md](docs/api.md) (self generated with grunt-jsdoc2md)
 
 ## getting started ##
 
