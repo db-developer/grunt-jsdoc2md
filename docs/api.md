@@ -4,7 +4,6 @@
 * [grunt-jsdoc2md](api/index.md#module_grunt-jsdoc2md)
     * [.registerMultiTaskJSDoc2MD(grunt)](api/index.md#module_grunt-jsdoc2md.registerMultiTaskJSDoc2MD)
 * [grunt-jsdoc2md/constants](api/constants.md#module_grunt-jsdoc2md/constants)
-* [grunt-jsdoc2md/handlebars](api/handlebars.md#module_grunt-jsdoc2md/handlebars)
 * [grunt-jsdoc2md/options](api/options/index.md#module_grunt-jsdoc2md/options)
     * [.get(grunt, task)](api/options/index.md#module_grunt-jsdoc2md/options.get) ⇒ <code>Object</code>
 * [grunt-jsdoc2md/options/jsdoc2md](api/options/jsdoc2md.md#module_grunt-jsdoc2md/options/jsdoc2md)

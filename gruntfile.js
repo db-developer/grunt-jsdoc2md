@@ -56,10 +56,10 @@ module.exports = function( grunt ) {
   // run dist: clean dist and move current.tgz from cwd to dist
   grunt.registerTask( strings.DIST,    [ `${ strings.CLEAN }:dist`, strings.MOVE ]);
 
-  // run docs
-  grunt.registerTask( strings.DOCS,    [ strings.ESLINT, strings.JSDOC2MD ]);
+  // run docs (removed self task JSDOC2MD)
+  grunt.registerTask( strings.DOCS,    [ strings.ESLINT ]);
 
   // run test
   grunt.registerTask( strings.TEST,    [ strings.ESLINT, strings.CLEAN, strings.MKDIR,
-                                         `${ strings.COPY }:test`, strings.NYCMOCHA ]);
+                                         strings.NYCMOCHA ]);
 };
