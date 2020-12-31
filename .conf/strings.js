@@ -6,6 +6,7 @@
 module.exports = {
   ALL:      "all",
   ANY:      "any",
+  API:      "api",
   BUILD:    "build",
   BUILDWP:  "webpack_build",
   BUILDRO:  "rollup_build",
@@ -20,13 +21,18 @@ module.exports = {
   DOT:      ".",
   ESLINT:   "eslint",
   GRUNT:    "grunt",
+  JSDOC2MD: "jsdoc2md",
   JSONFILE: "jsonfile",
   LIB:      "lib",
   MKDIR:    "mkdir",
-  SCRIPTS:  "scripts",
+  MOVE:     "move",
+  NYCMOCHA: "nyc_mocha",
+  REPORTS:  "reports",
+  ROLLUP:   "rollup",
   SRC:      "src",
   TASKS:    "tasks",
-  TEMPLATE: "templates",
+  TEMPLATE: "template",
   TEST:     "test",
-  TMP:      "tmp"
+  TMP:      "tmp",
+  WEBPACK:  "webpack"
 }
