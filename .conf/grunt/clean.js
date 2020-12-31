@@ -14,5 +14,5 @@ module.exports = function ( grunt, options ) {
     dist: {
       src: [ `${ options.DISTDIR }/*.tgz` ]
     }
-  }
+  };
 };
