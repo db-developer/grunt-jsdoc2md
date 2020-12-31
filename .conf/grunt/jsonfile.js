@@ -7,13 +7,15 @@ module.exports = function ( grunt, options ) {
   return {
     options: {
       templates: {
-        pkgjson:  "package.json",
+        pkgjson:  "package.json"
       }
     },
     build: {
       template:   "pkgjson",
       dest:       `${ options.BUILDDIR }/package.json`,
       merge: {
+        "main":             "lib",
+        "scripts":          undefined,
         "peerDependencies": undefined,
         "devDependencies":  undefined
       }

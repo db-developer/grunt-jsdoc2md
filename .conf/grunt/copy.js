@@ -16,8 +16,8 @@ module.exports  = function ( grunt, options ) {
     build: {
       files: [
         {
-          src:  [ "*.md", "package.json", "LICENSE" ],
-          dest: `${ options.BUILDDIR }/`
+          src:      [ "*.md", "package.json", "LICENSE" ],
+          dest:     `${ options.BUILDDIR }/`
         },{
           expand: true,
           cwd:    `${ options.DOCSDIR }/`,
@@ -41,22 +41,11 @@ module.exports  = function ( grunt, options ) {
     deploy: {
       files: [
         {
-          src:  `${ PACKAGE }-${ VERSION }.${ TGZ }`,
+          src:  `${ options.DISTDIR }/${ PACKAGE }-${ VERSION }.${ TGZ }`,
           dest: `${ PKGSDIR }/${ PACKAGE }-${ VERSION }.${ TGZ }`
         }, {
-          src:  `${ PACKAGE }-${ VERSION }.${ TGZ }`,
+          src:  `${ options.DISTDIR }/${ PACKAGE }-${ VERSION }.${ TGZ }`,
           dest: `${ PKGSDIR }/${ PACKAGE }-${ LATEST  }.${ TGZ }`
-        }
-      ]
-    },
-    distribute: {
-      files: [
-        {
-          src:  `${ PACKAGE }-${ VERSION }.${ TGZ }`,
-          dest: `${ options.DISTDIR }/${ PACKAGE }-${ VERSION }.${ TGZ }`
-        }, {
-          src:  `${ PACKAGE }-${ VERSION }.${ TGZ }`,
-          dest: `${ options.DISTDIR }/${ PACKAGE }-${ LATEST  }.${ TGZ }`
         }
       ]
     }

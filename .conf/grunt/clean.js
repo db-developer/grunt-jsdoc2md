@@ -6,13 +6,13 @@
 module.exports = function ( grunt, options ) {
   return {
     build: {
-      src: [ `${ options.BUILDDIR }/**` ]
+      src: [ `${ options.BUILDDIR }/` ]
     },
     coverage: {
-      src: [ `${ options.COVERAGEDIR }/**`, `${ options.TMPDIR }/**` ]
+      src: [ `${ options.COVERAGEDIR }/`, `${ options.TMPDIR }/` ]
     },
     dist: {
-      src: [ `${ options.DISTDIR }/**` ]
+      src: [ `${ options.DISTDIR }/*.tgz` ]
     }
   }
 };

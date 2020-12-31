@@ -166,10 +166,6 @@ function flattenTree( grunt, task, tree, datapromise ) {
 async function renderApiIndex( grunt, task, file, options, dsttree ) {
   // debug: write json data to file for analysis
   // _m.fs.writeFileSync( `${ file.dest }/api.md.json`, JSON.stringify( options.data ));
-
-  // debug: load custom helpers and partials
-  // const handlebars = require( "../handlebars" );
-  // handlebars.init( grunt );
   try {
       let   datapromise   = Promise.resolve([ ]);
             options       = JSON.parse( JSON.stringify( options ));

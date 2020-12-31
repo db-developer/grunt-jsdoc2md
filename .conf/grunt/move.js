@@ -13,10 +13,6 @@ module.exports  = function ( grunt, options ) {
     distribute: {
       src:  TGZSUFFIX,
       dest: `${ options.DISTDIR }/`
-    },
-    deploy: {
-      src:  TGZSUFFIX,
-      dest: PKGSDIR
     }
-  }
+  };
 };

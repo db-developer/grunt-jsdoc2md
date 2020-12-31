@@ -62,7 +62,6 @@
   "dependencies": {
     "dmd-grunt-jsdoc2md": "^0.0.3",
     "dmd-readable": "^1.2.2",
-    "handlebars": "^4.7.6",
     "jsdoc-to-markdown": "^6.0.1"
   }
 }
