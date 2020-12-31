@@ -37,7 +37,7 @@ module.exports = function( grunt ) {
   // run lint and all tests by default before packaging
   grunt.registerTask( strings.BUILD,   [ strings.ESLINT,   `${ strings.CLEAN }:build`,
                                          strings.MKDIR,    `${ strings.COPY  }:build`,
-                                         strings.BUILDRO ]);
+                                         strings.JSONFILE, strings.BUILDRO ]);
 
   grunt.registerTask( strings.BUILDWP, [ strings.WEBPACK, "shell:npm_pack" ]);
 
