@@ -12,7 +12,7 @@ module.exports = function ( grunt, options ) {
       dest: "docs/api/",
       options: {
         index:  {
-          dest:     "docs/api.md",
+          dest:     "docs/api.index.md",
           template: undefined
         }
       }
