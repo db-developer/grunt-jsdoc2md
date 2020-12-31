@@ -29,12 +29,6 @@ module.exports  = function ( grunt, options ) {
           filter: "isFile",
           src:  [ `${ options.TASKSDIR }/*.js` ],
           dest: `${ options.BUILDDIR }/tasks/`
-        },{
-          expand: true,
-          flatten: true,
-          filter: "isFile",
-          src:  [ `${ options.SCRITPSDIR }/*.js` ],
-          dest: `${ options.BUILDDIR }/scripts/`
         }
       ]
     },
