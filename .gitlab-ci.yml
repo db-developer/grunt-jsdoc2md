@@ -1,0 +1,42 @@
+image: node:latest
+
+stages:
+  - npm
+  - test
+  - cleanup
+
+cache:
+  paths:
+    - node_modules/
+
+npm:
+  stage: npm
+
+  tags:
+    - docker
+
+  script:
+    - npm cache clean --force
+    - npm install
+
+test:
+  stage: test
+
+  tags:
+    - docker
+
+  script:
+    - npm run test
+
+  artifacts:
+    reports:
+      cobertura: dist/coverage/cobertura-coverage.xml
+
+cleanup:
+  stage: cleanup
+
+  script:
+    - echo "Cleaning up"
+    - rm -rf "%CACHE_PATH%/%CI_PIPELINE_ID%"
+
+  when: always
