@@ -6,6 +6,7 @@
 module.exports = function ( grunt, options ) {
   return {
     options: {
+      EOF:  true,
       templates: {
         pkgjson:  "package.json"
       }
