@@ -60,7 +60,7 @@
   },
   "dependencies": {
     "dmd-grunt-jsdoc2md": "^0.0.8",
-    "dmd-readable": "^1.2.2",
+    "dmd-readable": "^1.2.3",
     "jsdoc-to-markdown": "^7.0.1"
   }
 }
