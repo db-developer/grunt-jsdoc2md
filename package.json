@@ -51,12 +51,12 @@
     "grunt-nyc-mocha": "^0.0.10",
     "grunt-rollup": "^11.5.0",
     "grunt-shell": "^3.0.1",
-    "grunt-webpack": "^5.44.0",
+    "grunt-webpack": "^4.0.3",
     "load-grunt-config": "^4.0.0",
     "load-grunt-tasks": "^5.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "source-map-support": "^0.5.19",
-    "webpack": "^5.40.0"
+    "webpack": "^5.44.0"
   },
   "dependencies": {
     "dmd-grunt-jsdoc2md": "^0.0.8",
