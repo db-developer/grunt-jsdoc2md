@@ -48,7 +48,7 @@
     "grunt-jsonfile": "^0.2.9",
     "grunt-mkdir": "^1.1.0",
     "grunt-move": "^1.0.3",
-    "grunt-nyc-mocha": "^0.0.10",
+    "grunt-nyc-mocha": "^1.0.0",
     "grunt-rollup": "^11.9.0-0",
     "grunt-shell": "^3.0.1",
     "grunt-webpack": "^4.0.3",
