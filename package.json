@@ -1,6 +1,6 @@
 {
   "name": "grunt-jsdoc2md",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "description": "Generate markdown api documentation from jsdoc.",
   "author": "Dirk Brenckmann <db.developer@gmx.de>",
   "license": "MIT",
@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/db-developer/grunt-jsdoc2md/issues"
   },
-  "homepage": "https://github.com/db-developer/grunt-jsdoc2md#readme",
+  "homepage": "https://www.slashlib.org/?page_id=512",
   "devDependencies": {
     "@babel/core": "^7.14.8",
     "@rollup/plugin-commonjs": "^19.0.2",
@@ -59,7 +59,7 @@
     "webpack": "^5.44.0"
   },
   "dependencies": {
-    "dmd-grunt-jsdoc2md": "^0.0.8",
+    "dmd-grunt-jsdoc2md": "^1.0.0",
     "dmd-readable": "^1.2.4",
     "jsdoc-to-markdown": "^7.0.1"
   }
