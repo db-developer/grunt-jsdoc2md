@@ -25,6 +25,8 @@ Generate markdown api documentation from jsdoc.
   * [Frameworks used for testing, building, etc.](docs/frameworks.md)
   * [API of package grunt-jsdoc2md](docs/api.index.md) (self generated with grunt-jsdoc2md)
 
+[Changelog](CHANGELOG.md)
+
 ## getting started ##
 
 This guide assumes, that you are familiar with the use of [npm](https://npmjs.com "Homepage of npm") and [grunt](https://gruntjs.com "Homepage of grunt").  
