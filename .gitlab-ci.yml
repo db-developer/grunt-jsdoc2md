@@ -5,22 +5,32 @@ stages:
   - test
   - cleanup
 
-cache:
+cache: &cache_node_modules
   paths:
     - node_modules/
 
 npm:
   stage: npm
 
+  cache:
+    # inherit cache_node_modules settings
+    <<: *cache_node_modules
+    policy: push
+
   tags:
     - docker
 
   script:
     - npm cache clean --force
-    - npm install
+    - npm install --force
 
 test:
   stage: test
+
+  cache:
+    # inherit cache_node_modules settings
+    <<: *cache_node_modules
+    policy: pull
 
   tags:
     - docker
@@ -31,12 +41,23 @@ test:
   artifacts:
     reports:
       cobertura: dist/coverage/cobertura-coverage.xml
+    expire_in: 10 days
 
 cleanup:
   stage: cleanup
 
+  cache:
+    # inherit cache_node_modules settings
+    <<: *cache_node_modules
+    policy: pull-push
+
   script:
     - echo "Cleaning up"
-    - rm -rf "%CACHE_PATH%/%CI_PIPELINE_ID%"
+    # clean caching directory
+    - rm -rf node_modules/
+    # make it available again so "nothing" can/will be cached
+    # if directory node_modules does not exist, cache will be
+    # considered as "uptodate" and remeains messy (no upload).
+    - mkdir node_modules
 
   when: always
