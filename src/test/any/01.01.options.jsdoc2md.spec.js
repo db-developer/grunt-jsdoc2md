@@ -29,11 +29,12 @@ const expect    = require( "expect.js" );
     });
     describe( "Testing function 'getOptions' of module 'options/jsdoc2md'", () => {
       it( "should not be callable without arguments", () => {
-          const errmsg  = "Cannot read property 'options' of undefined";
+          const errmsg      = "Cannot read property 'options' of undefined";
+          const errmsg_v_16 = "Cannot read properties of undefined (reading 'options')";
           expect(() => { jsdoc2md.getOptions(); }).to.throwException(( error ) => {
-            // console.log( error );
+            console.log( error );
             expect( error ).to.be.an( TypeError );
-            expect( error.message === errmsg ).to.be.ok();
+            expect(( error.message === errmsg ) || ( error.message === errmsg_v_16 )).to.be.ok();
           });
       });
       it( "should be callable with arguments 'grunt' and 'task'", () => {
