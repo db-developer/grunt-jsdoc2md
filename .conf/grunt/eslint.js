@@ -12,7 +12,7 @@ module.exports = function ( grunt, options ) {
 
   return {
     options: {
-      configFile: path.join( options.CONFDIR, ESLINT, ESLINTFILE )
+      overrideConfigFile: path.join( options.CONFDIR, ESLINT, ESLINTFILE )
     },
     target: [
       GRUNTFILE,
