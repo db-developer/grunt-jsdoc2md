@@ -51,7 +51,7 @@
     "grunt-nyc-mocha": "^1.0.0",
     "grunt-rollup": "^11.9.0-0",
     "grunt-shell": "^3.0.1",
-    "grunt-webpack": "^4.0.3",
+    "grunt-webpack": "^5.0.0",
     "load-grunt-config": "^4.0.1",
     "load-grunt-tasks": "^5.1.0",
     "rollup-plugin-terser": "^7.0.2",
