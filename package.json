@@ -56,7 +56,7 @@
     "load-grunt-tasks": "^5.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "source-map-support": "^0.5.20",
-    "webpack": "^5.64.1"
+    "webpack": "^5.64.2"
   },
   "dependencies": {
     "dmd-grunt-jsdoc2md": "^1.0.0",
