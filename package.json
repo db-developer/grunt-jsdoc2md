@@ -1,6 +1,6 @@
 {
   "name": "grunt-jsdoc2md",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Generate markdown api documentation from jsdoc.",
   "author": "Dirk Brenckmann <db.developer@gmx.de>",
   "license": "MIT",
