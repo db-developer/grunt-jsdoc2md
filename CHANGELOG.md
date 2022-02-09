@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+Updated dependencies (versions) in package.json  
+Dropped support for nodejs versions prior 12 see: https://nodejs.org/en/about/releases/  
+
 ### Added
 
 - No additions yet
