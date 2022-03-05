@@ -5,10 +5,7 @@ module.exports = {
         "node": true
     },
     "extends": "eslint:recommended",
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
+    "globals": { },
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module"
