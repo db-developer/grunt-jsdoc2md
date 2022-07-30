@@ -2,21 +2,17 @@
  *  © 2020, db-developer.
  *  Licensed under the MIT license.
  */
-const path        = require( "path" );
-
-const ESLINT      = "eslint";
-const ESLINTFILE  = `.${ ESLINT }rc.js`;
 const GRUNTFILE   = "gruntfile.js";
 
 module.exports = function ( grunt, options ) {
-
+ 
   return {
     options: {
-      overrideConfigFile: path.join( options.CONFDIR, ESLINT, ESLINTFILE )
+      overrideConfigFile: ".eslintrc.js"
     },
     target: [
       GRUNTFILE,
       `${ options.LIBDIR }/**/*.js`
     ]
   }
-};
+}
