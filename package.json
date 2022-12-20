@@ -38,7 +38,7 @@
   "homepage": "https://www.slashlib.org/?page_id=512",
   "devDependencies": {
     "@babel/core": "^7.19.6",
-    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "babel-loader": "^9.0.1",
     "expect.js": "^0.3.1",
@@ -63,6 +63,6 @@
   "dependencies": {
     "dmd-grunt-jsdoc2md": "^1.0.0",
     "dmd-readable": "^1.2.4",
-    "jsdoc-to-markdown": "^7.1.1"
+    "jsdoc-to-markdown": "^8.0.0"
   }
 }
