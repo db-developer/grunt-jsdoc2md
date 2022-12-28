@@ -37,10 +37,10 @@
   },
   "homepage": "https://www.slashlib.org/?page_id=512",
   "devDependencies": {
-    "@babel/core": "^7.19.6",
+    "@babel/core": "^7.20.7",
     "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
-    "babel-loader": "^9.0.1",
+    "babel-loader": "^9.1.0",
     "expect.js": "^0.3.1",
     "grunt": "^1.5.3",
     "grunt-check-outdated": "^1.1.0",
@@ -58,7 +58,7 @@
     "load-grunt-tasks": "^5.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "source-map-support": "^0.5.21",
-    "webpack": "^5.74.0"
+    "webpack": "^5.75.0"
   },
   "dependencies": {
     "dmd-grunt-jsdoc2md": "^1.0.0",
