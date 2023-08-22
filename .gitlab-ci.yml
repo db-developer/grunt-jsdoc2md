@@ -39,9 +39,11 @@ test:
     - npm run test
 
   artifacts:
+    expire_in: 2 days
     reports:
-      cobertura: dist/coverage/cobertura-coverage.xml
-    expire_in: 10 days
+      coverage_report:
+        coverage_format: cobertura
+        path: dist/coverage/cobertura-coverage.xml
 
 cleanup:
   stage: cleanup
