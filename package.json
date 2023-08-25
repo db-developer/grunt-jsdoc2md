@@ -40,7 +40,7 @@
     "@babel/core": "^7.22.11",
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-json": "^6.0.0",
-    "@rollup/plugin-node-resolve": "^15.2.0",
+    "@rollup/plugin-node-resolve": "^15.2.1",
     "babel-loader": "^9.1.2",
     "expect.js": "^0.3.1",
     "grunt": "^1.6.1",
