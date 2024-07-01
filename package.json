@@ -45,7 +45,7 @@
     "babel-loader": "^9.1.2",
     "expect.js": "^0.3.1",
     "grunt": "^1.6.1",
-    "grunt-check-outdated": "^1.1.0",
+    "grunt-check-outdated": "^1.2.0",
     "grunt-contrib-clean": "^2.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-eslint": "^25.0.0",
@@ -62,7 +62,7 @@
     "webpack": "^5.88.2"
   },
   "dependencies": {
-    "dmd-grunt-jsdoc2md": "^1.0.0",
+    "dmd-grunt-jsdoc2md": "^1.1.0",
     "dmd-readable": "^1.2.4",
     "jsdoc-to-markdown": "^8.0.1"
   }
