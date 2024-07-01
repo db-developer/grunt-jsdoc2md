@@ -9,7 +9,7 @@
  *  tasks/jsdoc2md.js  is distributed WITHOUT ANY WARRANTY; without even the
  *  implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- *//* eslint-disable-next-line */
+ */
 "use strict";
 
 /**
@@ -96,15 +96,13 @@ function getOptions( grunt, task ) {
   return options;
 }
 
-/* eslint-disable */
 // Module exports:
 Object.defineProperty( module.exports, _STRINGS.GETINDEXOPTIONS,  {
-       value:    getIndexOptions,
-       writable: false, enumerable: true, configurable: false });
+  value:    getIndexOptions,
+  writable: false, enumerable: true, configurable: false });
 Object.defineProperty( module.exports, _STRINGS.GETOPTIONS,       {
-       value:    getOptions,
-       writable: false, enumerable: true, configurable: false });
+  value:    getOptions,
+  writable: false, enumerable: true, configurable: false });
 Object.defineProperty( module.exports, _STRINGS.GETPLUGINS,       {
-       value:    getPlugins,
-       writable: false, enumerable: true, configurable: false });
-/* eslint-enable */
+  value:    getPlugins,
+  writable: false, enumerable: true, configurable: false });

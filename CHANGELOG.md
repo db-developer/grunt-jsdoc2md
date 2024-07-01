@@ -12,6 +12,14 @@ All notable changes to this project will be documented in this file.
 
 - No Fixes yet
 
+## [1.2.0] - 2024-07-01
+
+Updated dependencies (versions) in package.json
+Dropped support for nodejs versions prior 18 see: https://nodejs.org/en/about/releases/
+Changed eslint config file to flat
+Added eslint settings for vscode (using older eslint version than grunt)
+Moved 'old' (conflicting) eslint config files for vscode to .conf/vscode
+
 ## [1.1.0] - 2022-02-09
 
 Updated dependencies (versions) in package.json  

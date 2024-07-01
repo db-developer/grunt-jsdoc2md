@@ -9,7 +9,7 @@
  *  tasks/jsdoc2md.js  is distributed WITHOUT ANY WARRANTY; without even the
  *  implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- *//* eslint-disable-next-line */
+ */
 "use strict";
 
 /**
@@ -278,7 +278,7 @@ function reduce( dsttree ) {
  *  @param    {grunt.task}  task        - The task which currently is run
  *  @param    {Object}      file        - A grunt file object
  *  @param    {Object}      options     - Options to use for rendering jsdoc to md
- *//* eslint-disable-next-line */
+ */
 function filesToDirectory( grunt, task, file, options ) {
   if ( srcExists( grunt, file )) {
        grunt.log.warn( `${ _STRINGS.WARN_MISSING_SRC } '${ file.dest }'.` );
@@ -396,36 +396,34 @@ function registerMultiTaskJSDoc2MD( grunt ) {
   });
 }
 
-/* eslint-disable */
 // Module exports:
 Object.defineProperty( module.exports, _STRINGS.FILESTODIRECTORY,  {
-       value:    filesToDirectory,
-       writable: false, enumerable: true, configurable: false });
+  value:    filesToDirectory,
+  writable: false, enumerable: true, configurable: false });
 Object.defineProperty( module.exports, _STRINGS.FILESTOFILE,    {
-       value:    filesToFile,
-       writable: false, enumerable: true, configurable: false });
+  value:    filesToFile,
+  writable: false, enumerable: true, configurable: false });
 Object.defineProperty( module.exports, _STRINGS.GET,            {
-       value:    get,
-       writable: false, enumerable: true, configurable: false });
+  value:    get,
+  writable: false, enumerable: true, configurable: false });
 Object.defineProperty( module.exports, _STRINGS.REDUCE,         {
-       value:    reduce,
-       writable: false, enumerable: true, configurable: false });
+  value:    reduce,
+  writable: false, enumerable: true, configurable: false });
 Object.defineProperty( module.exports, _STRINGS.REGISTERMULTITASKJSDOC2MD, {
-       value:    registerMultiTaskJSDoc2MD,
-       writable: false, enumerable: true, configurable: false });
+  value:    registerMultiTaskJSDoc2MD,
+  writable: false, enumerable: true, configurable: false });
 Object.defineProperty( module.exports, _STRINGS.RENDER,         {
-       value:    render,
-       writable: false, enumerable: true, configurable: false });
+  value:    render,
+  writable: false, enumerable: true, configurable: false });
 Object.defineProperty( module.exports, _STRINGS.RENDERTREE,     {
-       value:    renderTree,
-       writable: false, enumerable: true, configurable: false });
+  value:    renderTree,
+  writable: false, enumerable: true, configurable: false });
 Object.defineProperty( module.exports, _STRINGS.RUNTASKJSDOC2MD,{
-       value:    runTaskJSDoc2MD,
-       writable: false, enumerable: true, configurable: false });
+  value:    runTaskJSDoc2MD,
+  writable: false, enumerable: true, configurable: false });
 Object.defineProperty( module.exports, _STRINGS.SRCEXISTS,      {
-       value:    srcExists,
-       writable: false, enumerable: true, configurable: false });
+  value:    srcExists,
+  writable: false, enumerable: true, configurable: false });
 Object.defineProperty( module.exports, _STRINGS.TREE,           {
-       value:    tree,
-       writable: false, enumerable: true, configurable: false });
-/* eslint-enable */
+  value:    tree,
+  writable: false, enumerable: true, configurable: false });

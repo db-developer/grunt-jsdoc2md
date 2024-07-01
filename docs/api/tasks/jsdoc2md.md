@@ -13,6 +13,7 @@
     * [~srcExists(grunt, file)](#module_grunt-jsdoc2md/tasks/jsdoc2md..srcExists) ⇒ <code>Boolean</code>
     * [~tree(sources)](#module_grunt-jsdoc2md/tasks/jsdoc2md..tree) ⇒ <code>Object</code>
     * [~reduce(dsttree)](#module_grunt-jsdoc2md/tasks/jsdoc2md..reduce) ⇒ <code>Object</code>
+    * [~filesToDirectory(grunt, task, file, options)](#module_grunt-jsdoc2md/tasks/jsdoc2md..filesToDirectory)
     * [~filesToFile(grunt, task, file, options)](#module_grunt-jsdoc2md/tasks/jsdoc2md..filesToFile) ⇒ <code>Promise</code>
     * [~get(grunt, task, file, options)](#module_grunt-jsdoc2md/tasks/jsdoc2md..get) ⇒ <code>Promise</code>
     * [~runTaskJSDoc2MD(grunt, task)](#module_grunt-jsdoc2md/tasks/jsdoc2md..runTaskJSDoc2MD) ⇒ <code>Promise</code>
@@ -95,6 +96,20 @@
 | Param | Type | Description |
 | --- | --- | --- |
 | dsttree | <code>Object</code> | tree of src/dst settings to render md files from |
+
+
+<br><a name="module_grunt-jsdoc2md/tasks/jsdoc2md..filesToDirectory"></a>
+
+### grunt-jsdoc2md/tasks/jsdoc2md~filesToDirectory(grunt, task, file, options)
+> Take one ore more input files and create multiple markdown output files>  inside a target directory.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| grunt | <code>grunt</code> | Grunt module |
+| task | <code>grunt.task</code> | The task which currently is run |
+| file | <code>Object</code> | A grunt file object |
+| options | <code>Object</code> | Options to use for rendering jsdoc to md |
 
 
 <br><a name="module_grunt-jsdoc2md/tasks/jsdoc2md..filesToFile"></a>

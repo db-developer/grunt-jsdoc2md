@@ -1,0 +1,5 @@
+{
+  "eslint.options": {
+    "eslint.lintTask.options": "-c D:/@db-developer/typescript/@db-developer-obsidian-log/.conf/vscode/.eslintrc.json --ignore-path D:/@db-developer/typescript/@db-developer-obsidian-log/.conf/vscode/.eslintignore ."
+  }
+}

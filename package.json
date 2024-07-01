@@ -1,12 +1,12 @@
 {
   "name": "grunt-jsdoc2md",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Generate markdown api documentation from jsdoc.",
   "author": "Dirk Brenckmann <db.developer@gmx.de>",
   "license": "MIT",
   "engineStrict": true,
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   },
   "main": "tasks/tasks.js",
   "scripts": {
@@ -37,33 +37,33 @@
   },
   "homepage": "https://www.slashlib.org/?page_id=512",
   "devDependencies": {
-    "@babel/core": "^7.23.3",
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-json": "^6.0.1",
+    "@babel/core": "^7.24.7",
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",    
     "babel-loader": "^9.1.2",
     "expect.js": "^0.3.1",
     "grunt": "^1.6.1",
     "grunt-check-outdated": "^1.1.0",
     "grunt-contrib-clean": "^2.0.1",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-eslint": "^24.1.0",
-    "grunt-jsonfile": "^1.0.0",
+    "grunt-eslint": "^25.0.0",
+    "grunt-jsonfile": "^1.2.0",
     "grunt-mkdir": "^1.1.0",
     "grunt-move": "^2.0.0",
-    "grunt-nyc-mocha": "^1.0.0",
+    "grunt-nyc-mocha": "^1.2.0",
     "grunt-rollup": "^12.0.0",
     "grunt-shell": "^4.0.0",
     "grunt-webpack": "^6.0.0",
     "load-grunt-config": "^4.0.1",
     "load-grunt-tasks": "^5.1.0",
-    "rollup-plugin-terser": "^7.0.2",
     "source-map-support": "^0.5.21",
     "webpack": "^5.88.2"
   },
   "dependencies": {
     "dmd-grunt-jsdoc2md": "^1.0.0",
     "dmd-readable": "^1.2.4",
-    "jsdoc-to-markdown": "^8.0.0"
+    "jsdoc-to-markdown": "^8.0.1"
   }
 }

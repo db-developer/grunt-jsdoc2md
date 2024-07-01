@@ -20,6 +20,7 @@
     * [~srcExists(grunt, file)](api/tasks/jsdoc2md.md#module_grunt-jsdoc2md/tasks/jsdoc2md..srcExists) ⇒ <code>Boolean</code>
     * [~tree(sources)](api/tasks/jsdoc2md.md#module_grunt-jsdoc2md/tasks/jsdoc2md..tree) ⇒ <code>Object</code>
     * [~reduce(dsttree)](api/tasks/jsdoc2md.md#module_grunt-jsdoc2md/tasks/jsdoc2md..reduce) ⇒ <code>Object</code>
+    * [~filesToDirectory(grunt, task, file, options)](api/tasks/jsdoc2md.md#module_grunt-jsdoc2md/tasks/jsdoc2md..filesToDirectory)
     * [~filesToFile(grunt, task, file, options)](api/tasks/jsdoc2md.md#module_grunt-jsdoc2md/tasks/jsdoc2md..filesToFile) ⇒ <code>Promise</code>
     * [~get(grunt, task, file, options)](api/tasks/jsdoc2md.md#module_grunt-jsdoc2md/tasks/jsdoc2md..get) ⇒ <code>Promise</code>
     * [~runTaskJSDoc2MD(grunt, task)](api/tasks/jsdoc2md.md#module_grunt-jsdoc2md/tasks/jsdoc2md..runTaskJSDoc2MD) ⇒ <code>Promise</code>
