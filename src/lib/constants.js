@@ -1,32 +1,30 @@
 /**
- *	constants.js:  grunt-jsdoc2md
+ *	lib/constants.js:  grunt-jsdoc2md
  *
  *  @module grunt-jsdoc2md/constants
  *
  *//*
- *  © 2020, slashlib.org.
+ *  © 2020, db-developer.
  *
- *  constants.js  is  distributed  WITHOUT  ANY WARRANTY;  without even  the
- *  implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
+ *  Distributed  WITHOUT  ANY WARRANTY;  without  even the  implied
+ *  warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
 "use strict";
 
 /**
- *  Module initializer
- *  @ignore
+ *  The task name used to register the 'jsdoc2md' multitask.
+ *
+ *  @constant
+ *  @type {string}
+ *  @default
  */
-const _STRINGS = {
-  PROPERTY_TASKNAME_JSDOC2MD:   "TASKNAME_JSDOC2MD",
-  PROPERTY_TASKDESC_JSDOC2MD:   "TASKDESCRIPTION_JSDOC2MD",
-  TASKNAME_JSDOC2MD:            "jsdoc2md",
-  TASKDESCRIPTION_JSDOC2MD:     "create markdown from jsdoc"
-};
+module.exports.TASKNAME = "jsdoc2md"
 
-// Module exports:
-Object.defineProperty( module.exports, _STRINGS.PROPERTY_TASKNAME_JSDOC2MD, {
-  value:    _STRINGS.TASKNAME_JSDOC2MD,
-  writable: false, enumerable: true, configurable: false });
-Object.defineProperty( module.exports, _STRINGS.PROPERTY_TASKDESC_JSDOC2MD, {
-  value:    _STRINGS.TASKDESCRIPTION_JSDOC2MD,
-  writable: false, enumerable: true, configurable: false });
+/**
+ *  The description used for the 'jsdoc2md' multitask.
+ *
+ *  @constant
+ *  @type {string}
+ *  @default
+ */
+module.exports.TASKDESCRIPTION = "Create markdown from jsdoc"

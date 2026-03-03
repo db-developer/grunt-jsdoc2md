@@ -8,7 +8,6 @@ module.exports = {
   ANY:          "any",
   API:          "api",
   BUILD:        "build",
-  BUILDWP:      "webpack_build",
   BUILDRO:      "rollup_build",
   CHKOUTDATED:  "check_outdated",
   CALL_NPM:     "call_npm",
@@ -30,10 +29,10 @@ module.exports = {
   NYCMOCHA:     "nyc_mocha",
   REPORTS:      "reports",
   ROLLUP:       "rollup",
+  SCRIPTS:      "scripts",
   SRC:          "src",
   TASKS:        "tasks",
   TEMPLATE:     "template",
   TEST:         "test",
-  TMP:          "tmp",
-  WEBPACK:      "webpack"
+  TMP:          "tmp"
 }

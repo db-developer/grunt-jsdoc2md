@@ -1,11 +1,18 @@
 /**
- *  © 2019, db-developer.
- *  Licensed under the MIT license.
+ * tasks/tasks.js: grunt tasks
+ *
+ * @module tasks
+ *
+ *//*
+ *  © 2020, db-developer.
+ *
+ *  Distributed  WITHOUT  ANY WARRANTY;  without  even the  implied
+ *  warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
 "use strict";
 
 const lib = require( "../lib" );
 
 module.exports = function( grunt ) {
-  lib.registerMultiTaskJSDoc2MD( grunt );
+  lib.registerMultiTask( grunt );
 };

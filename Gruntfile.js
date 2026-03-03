@@ -39,13 +39,11 @@ module.exports = function( grunt ) {
                                          strings.MKDIR,    `${ strings.COPY  }:build`,
                                          strings.JSONFILE, strings.BUILDRO ]);
 
-  grunt.registerTask( strings.BUILDWP, [ strings.WEBPACK ]);
-
   grunt.registerTask( strings.BUILDRO, [ strings.ROLLUP  ]);
 
   // run coverage (required by travis)
-  grunt.registerTask( strings.COVERAGE, [ strings.ESLINT, strings.CLEAN, strings.MKDIR,
-                                          strings.NYCMOCHA ]);
+  // grunt.registerTask( strings.COVERAGE, [ strings.ESLINT, strings.CLEAN, strings.MKDIR,
+  //                                        strings.NYCMOCHA ]);
 
   // run default
   grunt.registerTask( strings.DEFAULT, [ strings.ALL ]);

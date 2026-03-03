@@ -1,13 +1,14 @@
 /**
+ *  @file src/test/any/00.00.constants.js
+ *  @author slashlib.org
+ *//**
  *  © 2020, slashlib.org.
  */
 const grunt     = require( "grunt" );
 const constants = require( "../../lib/constants" );
-// const idx       = require( "../../lib" );
 
 const promise = new Promise(( resolve, reject ) => {
-  const name     = constants.TASKNAME_JSDOC2MD;
-  // idx.registerMultiTaskJSDoc2MD( grunt );
+  const name     = constants.TASKNAME;
 
   // note: this requires a "jsdoc2md.js" file in .conf/grunt (see gruntfile.js)
   grunt.task.registerMultiTask( name, `Test '${ name }' stuff`, function() {

@@ -2,15 +2,15 @@
 <br><a name="module_grunt-jsdoc2md/tasks"></a>
 
 ## grunt-jsdoc2md/tasks
-> index.js: grunt-jsdoc2md/tasks
+> lib/tasks/index.js: grunt-jsdoc2md/tasks
 
 
-<br><a name="module_grunt-jsdoc2md/tasks.registerMultiTaskJSDoc2MD"></a>
+<br><a name="module_grunt-jsdoc2md/tasks.registerMultiTask"></a>
 
-### grunt-jsdoc2md/tasks.registerMultiTaskJSDoc2MD(grunt)
+### grunt-jsdoc2md/tasks.registerMultiTask(grunt)
 > Register a multitask for 'jsdoc2md'.
 
-**See**: Function [registerMultiTaskJSDoc2MD](jsdoc2md.md#.registerMultiTaskJSDoc2MD)         published by module jsdoc2md for a detailed function description.  
+**See**: Function [registerMultiTask](jsdoc2md.md#.registerMultiTask)         published by module jsdoc2md for a detailed function description.  
 
 | Param | Type |
 | --- | --- |

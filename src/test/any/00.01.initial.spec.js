@@ -1,4 +1,7 @@
 /**
+ * @file src/test/any/00.01.initial.spec.js
+ */
+/**
  *  © 2020, slashlib.org.
  *
  *  Initial tests - to be run in advance to any other test.
@@ -7,8 +10,8 @@
 const assert = require( "assert" );
 
 ( async function() {
-  const constants = require( "./00.00.constants" );
-  const env       = await constants.env;
+  // const constants = require( "./00.00.constants" );
+  // const env       = await constants.env;
 
   describe( "00.01.initial.spec.ts", () => {
     describe( "Testing for prerequisites.", () => {

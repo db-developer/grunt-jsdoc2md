@@ -2,7 +2,7 @@
 <br><a name="module_grunt-jsdoc2md/options"></a>
 
 ## grunt-jsdoc2md/options
-> index.js: grunt-jsdoc2md/options
+> lib/options/index.js: grunt-jsdoc2md/options
 
 
 <br><a name="module_grunt-jsdoc2md/options.get"></a>

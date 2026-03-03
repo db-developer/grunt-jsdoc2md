@@ -1,34 +1,18 @@
 /**
- *	index.js: grunt-jsdoc2md/options
+ *	lib/options/index.js: grunt-jsdoc2md/options
  *
  *  @module grunt-jsdoc2md/options
  *
  *//*
- *  © 2020, slashlib.org.
+ *  © 2020, db-developer.
  *
- *  tasks/index.js  is  distributed  WITHOUT ANY WARRANTY;  without even the
- *  implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
+ *  Distributed  WITHOUT  ANY WARRANTY;  without  even the  implied
+ *  warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
 "use strict";
 
-/**
- *  Moduletable
- *  @ignore
- */
-const _m = {
-  jsdoc2md:    require( "./jsdoc2md" )
-};
+const jsdoc2md = require( "./jsdoc2md" );
 
-/**
- *  Stringtable
- *  @ignore
- */
-const _STRINGS = {
-  GET:        "get"
-};
-
-// Module exports:
 /**
  *  Get task/target options
  *
@@ -41,6 +25,4 @@ const _STRINGS = {
  *  @returns  {Object}      a superposition of default options and those read
  *                          from grunts configuration.
  */
-Object.defineProperty( module.exports, _STRINGS.GET,  {
-  value:    _m.jsdoc2md.getOptions,
-  writable: false, enumerable: true, configurable: false });
+module.exports.get = jsdoc2md.getOptions;
