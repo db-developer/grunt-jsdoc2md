@@ -7,7 +7,7 @@
 [![codecov](https://codecov.io/gh/db-developer/grunt-jsdoc2md/branch/master/graph/badge.svg)](https://codecov.io/gh/db-developer/grunt-jsdoc2md)
 
 
-[BOTTOM](#purpose) [AI](AI.md) [CHANGELOG](CHANGELOG.md) [LICENSE](LICENSE)
+[BOTTOM](#notes) [AI](AI.md) [CHANGELOG](CHANGELOG.md) [LICENSE](LICENSE)
 
 # grunt-jsdoc2md
 
