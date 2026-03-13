@@ -6,7 +6,6 @@
 ![Build & Test](https://github.com/db-developer/grunt-jsdoc2md/actions/workflows/ci.yml/badge.svg)
 [![codecov](https://codecov.io/gh/db-developer/grunt-jsdoc2md/branch/master/graph/badge.svg)](https://codecov.io/gh/db-developer/grunt-jsdoc2md)
 
-
 [BOTTOM](#notes) [AI](AI.md) [CHANGELOG](CHANGELOG.md) [LICENSE](LICENSE)
 
 # grunt-jsdoc2md

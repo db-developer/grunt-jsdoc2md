@@ -1,3 +1,5 @@
+[BOTTOM](#100---2021-07-28) [AI](AI.md) [LICENSE](LICENSE) [README](README.md)
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -11,6 +13,11 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 
 - No Fixes yet
+
+## [1.3.1] - 2026-0?-0?
+
+Added links to AI.md, CHANGELOG.md and LICENSE.md for better navigation and documentation.
+- Updated package.json to reflect the latest version and dependencies.
 
 ## [1.3.0] - 2026-03-03
 
@@ -46,3 +53,5 @@ Switched to a stable major release number. No breaking changes.
 
 ### Updates
 - updated various developer dependencies
+
+[TOP](#changelog) [AI](AI.md) [LICENSE](LICENSE) [README](README.md)

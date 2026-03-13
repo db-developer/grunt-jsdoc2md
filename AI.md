@@ -1,4 +1,4 @@
-[BOTTOM](#purpose) [README](README.md) [CHANGELOG](CHANGELOG.md) [LICENSE](LICENSE)
+[BOTTOM](#purpose) [CHANGELOG](CHANGELOG.md) [LICENSE](LICENSE) [README](README.md)
 
 # AI-assisted Development Report
 
@@ -28,4 +28,4 @@ The AI tools supported the following activities:
 - Explaining module-level behaviors and ES module import semantics
 - Maintaining consistency between business logic and runtime behavior
 
-[TOP](#ai-assisted-development-report) [README](README.md) [CHANGELOG](CHANGELOG.md) [LICENSE](LICENSE)
+[TOP](#ai-assisted-development-report) [CHANGELOG](CHANGELOG.md) [LICENSE](LICENSE) [README](README.md)
