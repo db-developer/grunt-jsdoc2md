@@ -14,7 +14,8 @@ module.exports  = function ( grunt, options ) {
   return {
     options: {
       external:   [
-                    "fs", "path",         /* node packages */ 
+                    "fs", "os", "path",                /* node packages */ 
+                    "node:fs", "node:os", "node:path", /* node built-ins */
                     "jsdoc-to-markdown"
                   ],
       format:     "cjs",
